@@ -44,10 +44,18 @@ else
         		}
         		else
         		{
-               	 		session_start();
-                		$_SESSION['user']=$login_user;
-                		header("Location:main.php");
-                		exit;
+				if($raw['status']!=1)
+				{
+					echo '<script>alert("不是管理员")</script>';
+					exit;
+				}
+				else
+				{
+               	 			session_start();
+                			$_SESSION['user']=$login_user;
+                			header("Location:main.php");
+                			exit;
+				}
         		}		
 		?>
 	</body>

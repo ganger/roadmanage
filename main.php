@@ -30,13 +30,14 @@ $login_user=$_SESSION['user'];
 		<a href="break.php">违章记录</a><br>
 		<a href="">车辆轨迹</a><br>
 		<a href="">信息修改</a><br>
-		<a href="">安全退出</a><br>
+		<a href="logout.php">安全退出</a><br>
 		<?php
 			mysql_select_db($db_name);
 			$result=mysql_query('select * from users where username="'.$login_user.'"');
 			$raw=mysql_fetch_array($result);
 			echo "车牌号:";
 			echo $raw['vehicleNo'];
+			$_SESSION["veNo"]=$raw['vehicleNo'];
 			echo "<br>";
 			
 			echo "用户名:";
